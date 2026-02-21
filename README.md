@@ -198,4 +198,3 @@ This architecture mirrors real-world globally distributed systems where:
 
 # Author
 Surya
-Distributed Systems Backend Engineering Project
