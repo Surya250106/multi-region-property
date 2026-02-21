@@ -17,12 +17,30 @@ This project demonstrates:
 
 ------------------------------------------------------------------------
 
-# Architecture Overview
+# 🏗 Architecture Overview
 
-Client \| v NGINX Reverse Proxy \| \|---- /us/\* ---\> backend-us ---\>
-db-us \| \|---- /eu/\* ---\> backend-eu ---\> db-eu \| v Kafka \| v
-Cross-Region Consumer
-
+```
+                Client
+                   |
+                   v
+          NGINX Reverse Proxy
+               /           \
+              /             \
+        /us/*                 \eu/*
+            |                     |
+            v                     v
+       backend-us            backend-eu
+            |                     |
+            v                     v
+           db-us                 db-eu
+                \               /
+                 \             /
+                  v           v
+                      Kafka
+                        |
+                        v
+            Cross-Region Consumer
+```
 ------------------------------------------------------------------------
 
 # Tech Stack
@@ -75,10 +93,23 @@ Returns: { "lag_seconds": 2.4 }
 
 ------------------------------------------------------------------------
 
-# Project Structure
+## 📁 Project Structure
 
-multi-region-property/ │ ├── docker-compose.yml ├── nginx/ ├── backend/
-├── seeds/ ├── tests/ └── docs/
+```
+multi-region-property/
+│
+├── docker-compose.yml
+│
+├── nginx/
+│
+├── backend/
+│
+├── seeds/
+│
+├── tests/
+│
+└── docs/
+```
 
 ------------------------------------------------------------------------
 
@@ -166,5 +197,5 @@ This architecture mirrors real-world globally distributed systems where:
 ------------------------------------------------------------------------
 
 # Author
-
+Surya
 Distributed Systems Backend Engineering Project
